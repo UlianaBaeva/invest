@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #wrapper{
+            position:relative;
+        }
+        #chat{
+            width:100%;
+            display:flex;
+            flex-direction:column;
+        }
+        .message{
+            background-color: #ccc;
+            border:1px solid #999;
+            padding:10px;
+            margin:10px;
+            border-radius:10px;
+            width: fit-content;
+        }
+        #send{
+            width: 100%;
+            position:fixed;
+            height:60px;
+            display:flex;
+            bottom:0;
+        }
+        #send_message{
+            width:150px;
+            color:white;
+            background-color: rgb(56,79,56);
+            font-size: 20px;
+            cursor:pointer;
+        }
+        #message{
+            font-size:20px;
+            line-height:60px;
+            width: inherit;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="chat">
+        <div class="message">
+            Текстовое сообщение
+        </div>
+    </div>
+    <div id="send">
+        <input type="text" id="message">
+        <input type="button" value="Отправить"  id="send_message">
+    </div>
+    </div>
+</body>
+</html>
