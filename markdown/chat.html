@@ -60,5 +60,37 @@
         <input type="button" value="Отправить"  id="send_message">
     </div>
     </div>
+    <script>
+        function newMessage(text)
+        {
+            let div = document.createElement('div');
+            div.className = 'message';
+            div.textContent = text;
+            document.querySelector('#chat').appendChild(div);
+        }
+        function sendMessage() 
+        {
+            let message = document.querySelector('#message');
+            let text = message.value;
+            if (text.trim().length>0)
+            {
+                newMessage(text);
+                message.value='';
+            }
+        }
+        function sendMessageByEnter(e)
+        {
+            console.log(e);
+            if (e.code =='Enter' || e.code == 'NumpadEnter')
+            {
+                sendMessage();
+            }
+        }
+        window.onload = () =>
+        {
+            document.querySelector('#send_message').onclick = sendMessage;
+            document.querySelector('#message').onkeyup = sendMessageByEnter;
+        }
+    </script>
 </body>
 </html>
