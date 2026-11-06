@@ -440,9 +440,39 @@
                     margin-top:100px;
                     text-align:center;
                     font-size:large;
-                    background-color:${document.querySelector('#color').value}
+                    background-color:${document.querySelector('#color').value}`
                 }
         }
+
+        const funcs = [
+            'const',
+            'x',
+            'x^n',
+            'sqrt(x)',
+            'a^x',
+            'e^x',
+            'log(x)',
+            'log(x,a)',
+            'sin(x)',
+            'asin(x)',
+            'cos(x)',
+            'acos(x)',
+            'tan(x)',
+            'atan(x)',
+        ];
+        for (let func of funcs)
+        {
+            tableD+='<tr>';
+            tableD+='<td>'+katex.renderToString(math.parse(func).toTex())+'</td>';
+            tableD+='<td>'+katex.renderToString(math.derivative(func, 'x').toTex())+'</td>';
+            tableD+='<tr>';
+        }
+
+        let tableD = '<table><thead>';
+        tableD +='<tr><th>Функция</th><th>Производная</th></tr></thead><tbody>';
+        tableD+='</tbody></table>';
+        let tableNodeD = document.querySelector('#derivatives');
+        tableNodeD.insertAdjacentHTML('beforeend',tableD);
     </script>
 </body>
 </html>
